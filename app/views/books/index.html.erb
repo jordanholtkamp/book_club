@@ -5,7 +5,7 @@
   <h3><%= book.title %></h3>
   <h5>By:<% book.authors.each do |author| %>
             <ul>
-             <li><%= author.name %></li>
+             <li><%= link_to "#{author.name}", "/authors/#{author.id}" %></li>
             </ul>
           <% end  %></h5>
   <p>Year published: <%= book.publication_year %></p>
