@@ -35,7 +35,23 @@ describe 'As a user', type: :feature do
     end
 
     it "each author name is a link to their show page" do
+      visit '/books'
 
+      within "#book-#{@jitter.id}" do
+        expect(page).to have_link(@tom.name)
+        expect(page).to have_link(@john.name)
+        click_link "#{@tom.name}"
+      end
+
+      expect(current_path).to eq("/authors/#{@tom.id}")
+
+      visit '/books'
+
+      within "#book-#{@slaughterhouse.id}" do
+        click_link "#{@kurt.name}"
+      end
+
+      expect(current_path).to eq("/authors/#{@kurt.id}")
     end
     # As a user,
       # When I visit the Book Index Page,
