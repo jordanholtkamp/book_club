@@ -14,7 +14,7 @@ describe 'As a user' do
       expect(page).to have_content(tom.name)
       expect(page).to have_content(jitter.title)
       expect(page).to have_content(skinny_legs.title)
-      expect(page).to have_content(399)
+      expect(page).to have_content(398)
     end
   end
 end
